@@ -1,3 +1,4 @@
+// Hello World
 package main //指明该文件属于哪个包,每个go程序必须要有一个main
 
 import "fmt" //导入fmt包，内含格式化IO函数

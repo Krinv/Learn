@@ -1,3 +1,4 @@
+// 字符串格式化输出
 package main
 
 import "fmt"

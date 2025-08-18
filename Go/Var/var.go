@@ -1,3 +1,4 @@
+// 变量
 package main
 
 import "fmt"
