@@ -61,4 +61,10 @@ func main() {
 	for _, value := range map1 {
 		fmt.Printf("仅value is %.2f\n", value)
 	}
+
+	// 跳转语句,利用标签实现
+	goto LOOP
+LOOP:
+	fmt.Println("jump")
+
 }
