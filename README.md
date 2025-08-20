@@ -1,3 +1,3 @@
 # Learn
 
-My own learning archive files
+My personal learning archive files
