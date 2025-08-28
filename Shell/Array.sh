@@ -42,3 +42,21 @@ COMMENT
 注释内容
 !
 
+# 关联数组：即使用字符串、整数作为下标来访问的数组
+echo -e "\n声明关联数组------:"
+
+#declare -A array_name  -A为关联数组的选项
+#统一设置
+declare -A site=(
+    ["google"]="google.com"
+    ["baidu"]="baidu.com"
+    ["taobao"]="taobao.com"
+)
+echo "${site[@]}"
+
+# 先声明再设置键值
+declare -A site2
+site2["google"]="google.com"
+site2["baidu"]="baidu.com"
+site2["taobao"]="taobao.com"
+echo "${site2[@]}"
