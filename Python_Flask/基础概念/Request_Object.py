@@ -25,3 +25,12 @@ def submit():
 
 if __name__=='__main__':
     app.run()
+
+
+'''
+测试方法：
+GET：
+    访问URL：http://127.0.0.1:5000/submit?name=John&age=30
+POST：
+    命令行通过curl指令：curl -X POST -d "username=Alice&email=alice@example.com" http://localhost:5000/submit
+'''
