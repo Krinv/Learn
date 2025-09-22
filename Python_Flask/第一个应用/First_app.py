@@ -2,7 +2,10 @@
 from flask import Flask
 
 # 创建Flask实例
-app=Flask(__name__)
+# __name__特殊变量:
+# 在模块被直接运行时，__name__='__main__'
+# 在被其他模块导入时，是本模块的名字
+app=Flask(__name__) 
 
 #装饰器指定Flask哪一个URL触发下面的函数，这里指定网页根目录（主页）
 @app.route('/')
