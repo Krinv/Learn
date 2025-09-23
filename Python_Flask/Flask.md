@@ -59,9 +59,69 @@ def greet(name):
 请求对象包括客户端发送的请求信息，包括：请求方法、URL、请求头、表单数据等，Flask 用request对象来访问这些信息
 
 ```python
+from flask import request
+
 @app.route('/submit',methods=['POST'])
 def submit():
     username=request.form.get('username')
     return f'Hello,{username}!'
+```
+
+### 响应对象 Response Object
+
+响应对象包含发送给客户端的响应信息。响应信息（状态码、响应头、响应体）。Flask默认将字符串、HTML直接作为响应体
+
+```python
+from flask import make_response
+
+@app.route('/custom_response')
+def custom_response():
+    response=make_response('THis is a custom response!')		//创建自定义响应对象
+    response.headers['X-Custom-Header']='Value'		//设置响应头X-Custom-Header
+    return response
+```
+
+### 模板
+
+Flask使用Jinja2模板引擎渲染HTML，允许将python代码嵌入HTML，动态生成网页内容
+
+```html
+<!--hello.html内容-->
+<html>
+    <head>
+        <title>Hello</title>
+    </head>
+    <body>
+        <h1>
+            Hello,{{name}}!		<!--在一些模板引擎中表示变量替换-->
+        </h1>
+    </body>
+</html>    
+```
+
+
+
+```python
+# 已有hello.html模板文件的前提下
+from flask import render_template
+
+@app.route('/hello/<name>')
+def hello(name)
+	return render_template('hello.html',name=name)
+```
+
+### 应用工厂 Application Factory
+
+是一个py函数，允许你创建和配置多个Flask应用实例，或在不同配置下初始化应用
+
+```python
+def create_app(config_name)
+	app=Flask(__name__)
+	app.config.from_object(config_name)
+
+	from . import routes
+	app.register_blueprint(routes.bp)
+
+	return app
 ```
 
