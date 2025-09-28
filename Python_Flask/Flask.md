@@ -190,4 +190,4 @@ def internal_server_error(e):
 
 ## Flask项目结构图
 
-<img src="C:\Study Files\打工相关\Learn\Python_Flask\image\Flask\image-20250928104057180.png" alt="image-20250928104057180" style="zoom:50%;" />
+<img src="./image/Flask/image-20250928104057180.png" style="zoom:50%;" />
