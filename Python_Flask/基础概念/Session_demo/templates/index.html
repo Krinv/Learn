@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <h1>Flask会话演示</h1>
+
+        <div class="session-info">
+            <h3>当前会话数据</h3>
+            <p>用户名：<strong>{{username}}</strong></p>
+            <p>访问次数：<strong>{{visit_count}}</strong></p>
+        </div>
+    </body>
+
+    {% if message %}
+    <div class="message{{message_type}}">{{message}}</div>
+    {% endif %}
+
+    <form action="/" method="post">
+        <input type="text" name="username" placeholder="输入用户名">
+        <button type="submit">设置用户名</button>
+    </form>
+
+    <p style="margin-top: 20px;">
+        <a href="/clear">清除会话</a>
+        <a href="/">刷新页面</a>
+    </p>
+
+    <p><small>提示: 会话数据会在多个请求间保持，即使刷新页面也不会丢失。</small></p>
+</html>

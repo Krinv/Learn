@@ -112,7 +112,7 @@ def hello(name)
 
 ### 应用工厂 Application Factory
 
-是一个py函数，允许你创建和配置多个Flask应用实例，或在不同配置下初始化应用
+是一个py函数，允许你创建和配置多个Flask应用实例，或在不同配置下初始化应用。通过函数的入参，进行多种配置设置，再实例化相应的程序。
 
 ```python
 def create_app(config_name)
@@ -123,5 +123,52 @@ def create_app(config_name)
 	app.register_blueprint(routes.bp)
 
 	return app
+```
+
+### 配置对象
+
+配置对象用于设置应用的各种配置选项。可以直接设置或加载配置文件来配置Flask应用。
+
+```python
+class Config:
+	DEBUG=True
+	SECRET_KEY='mysecretkey'
+	SQL_DATABASE_URI='sqlite://mydatabase.db'
+```
+
+### 蓝图
+
+蓝图允许将相关视图函数、模板、静态文件组织再一起，且可在多个应用中重新使用
+
+```python
+from flask import Blueprint
+
+bp=Blueprint('main',__name__)
+
+@bp.route('/')
+def home():
+    return 'Home Page'
+```
+
+### 会话
+
+Flask使用客户端会话存储用户信息，会话数据存储在客户端cookie中，并在服务端进行签名和加密
+
+```python
+# session对象用于存取会话数据
+from flask import session
+
+#自动生成的密钥
+app.secret_key='your_secret_key'
+
+@app.route('/set_session/<username>')
+def set_session(username):
+    session['username']=username
+    return f'Session set for {username}'
+
+@app.route('/get_session')
+def get_session():
+    username=session.get('username')
+    return f'Hello,{username}!' if username else 'No session data'
 ```
 
