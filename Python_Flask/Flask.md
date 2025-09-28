@@ -172,3 +172,17 @@ def get_session():
     return f'Hello,{username}!' if username else 'No session data'
 ```
 
+### 错误处理
+
+允许自定义错误函数，发生错误时调用
+
+```python
+@app.errorhandler(404)
+def page_not_found(e):
+	return 'Page not found',404
+	
+@app.errorhandler(500)
+def internal_server_error(e):
+	return 'Internal server error',500
+```
+
