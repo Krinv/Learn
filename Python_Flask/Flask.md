@@ -186,3 +186,8 @@ def internal_server_error(e):
 	return 'Internal server error',500
 ```
 
+
+
+## Flask项目结构图
+
+<img src="C:\Study Files\打工相关\Learn\Python_Flask\image\Flask\image-20250928104057180.png" alt="image-20250928104057180" style="zoom:50%;" />
